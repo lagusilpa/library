@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- links for styles -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- plug-in for font icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
-        <div class="logo"></div>
-        <input type="search">
-        <a href="#">sign in</a>
+        <div id="logo"><i class="fa-solid fa-book-atlas"></i></div>
     </header>
     <main>
         <div class="book">
-            <button id="delete-all">delete all</button>
+            <button id="delete-all">DELETE ALL</button>
             <table>
                 <thead >
                     <tr>
                         <td>title</td>
                         <td>Author</td>
                         <td>number of pages</td>
+                        <td>Status</td>
                         <td>Removal</td>
                     </tr>
                 </thead>
@@ -27,11 +30,14 @@
         </div>
     </main>
     <aside>
-        <form action="" method="get" style="display: flex; flex-direction:column">
-            <label for="title">Title<input type="text" name="title"id="title"></label>
-            <label for="author">Author<input type="text" name="author" id="author"></label>
-            <label for="num-of-pages">Number of Pages<input type="number" name="pages" id="num-of-pages"></label>
-            <button type="submit" id="submit">Submit</button>
+        <div id="logo"><i class="fa-solid fa-book"> Library</i></div>
+        <form action="" method="get" >
+            <input   type="text" name="title"id="title" placeholder="What is the Title of the book?" required>
+            <input   type="text" name="author" id="author" placeholder="Who is the Author of the book" required>
+            <input   type="number" name="pages" id="num-of-pages" placeholder="How many pages are in the book?" required>
+            <!-- <button type="submit" id="submit">Add a New Book</button> -->
+            <input type="checkbox" name="Reading status" value="Read" id="read-status"><label for="read-status">I have already read this book!</label>
+            <input type="submit" id="submit" value="Add a New Book" >
         </form>
     </aside>
 

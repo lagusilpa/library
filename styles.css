@@ -1,0 +1,134 @@
+/* css root variables declaration */
+:root{
+    --primary-color:#1a3246;
+    --secondary-color:#E9C1AF;
+    --danger-color:#D05050;
+    --text-color:aliceblue;
+}
+
+/* Removing some default styles */
+html{
+    box-sizing: border-box;
+}
+
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+
+/* arranging the contents using grid */
+body{
+    display: grid;
+    grid-template-columns:1fr 3fr;
+    grid-template-rows: 13% 87%;
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    grid-area:1/1/2/3;
+    background-color: var(--primary-color);
+}
+
+main {
+    grid-area: 2/2/3/3;
+}
+
+/* adding styles to header content */
+header #logo{
+    color: var(--text-color);
+    font-size: 5rem;
+    padding: 15px 20px;
+}
+
+/* adding other styles to form contents */
+aside{
+    background-color: var(--secondary-color);
+    padding: 25px 10px ;
+    /* width:250px */
+}
+
+aside #logo{
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+form{
+    margin-top: 80px;
+    padding: 20px;
+    /* border: 3px solid black; */
+}
+aside input{
+    display: block;
+    font-size:25px;
+    margin: 10px ;
+    background-color: var(--secondary-color);
+    border-bottom: dotted;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+label{
+    font-size: 25px;
+}
+form input[type="checkbox"]{
+    height: 30px;
+    width: 30px;
+    color: var(--secondary-color); /*not working properly*/
+    display: inline;
+}
+
+/* adding styles to buttons */
+button,form  #submit{
+    background-color:var(--primary-color) ;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+form #submit{
+    margin-top: 50px;
+}
+
+td button{
+    font-size: 1rem;
+}
+
+td button , #delete-all{
+    background-color: var(--danger-color);
+}
+
+#delete-all{
+    margin: 25px 0 10px 75%;
+}
+
+/* adding styles to table */
+table{
+    margin:15px auto;
+    table-layout:  fixed;
+    border: 3px solid var(--primary-color);
+}
+
+table thead{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+thead td{
+    padding: 5px;
+}
+
+tbody td{
+    font-family: monospace;
+    font-size: 25px;
+    text-align: center;
+}
+
+tbody tr td{
+    border-right: 1px dotted black;
+    border-bottom: 1px dotted black;
+
+}

@@ -2,6 +2,7 @@ const title=document.getElementById('title');
 const author=document.getElementById('author');
 const numOfPages=document.getElementById('num-of-pages');
 const submitBtn=document.getElementById('submit');
+const readStatus=document.getElementById('read-status');
 
 const table = document.querySelector("table");
 const tableBody = document.createElement("tbody");
@@ -11,7 +12,13 @@ const deleteAllBtn = document.getElementById("delete-all");
 // console.log(deleteAllBtn)
 
 const book=document.querySelector('.book');
-let books=[];
+let books=[
+    // {
+    //     "bookTitle": "The Alchemist",
+    //     "bookAuthor": "Novel by Paulo Coelho",
+    //     "bookPages": "0"
+    // }
+];
 let deleteBookNumber = 1;
 
 submitBtn.addEventListener('click',(e)=>{
@@ -50,21 +57,33 @@ function displayBook(book){
     let tableDataTwo=document.createElement('td');
     let tableDataThree=document.createElement('td');
     let tableDataFour=document.createElement('td');
+    let tableDataFive=document.createElement('td');
     
     let deleteBtn=document.createElement('button');
       
     tableDataOne.innerText=book.bookTitle;
     tableDataTwo.innerText=book.bookAuthor;
     tableDataThree.innerText=book.bookPages; 
+
+    if(!readStatus.checked){
+        // book NOT read
+        tableDataFour.innerHTML  =  '<i class="fa-solid fa-xmark"></i>'
+        tableDataFour.style.color = '#D05050';
+    }else{
+        // book  is read
+        tableDataFour.innerHTML = '<i class="fa-solid fa-check"></i>'
+        tableDataFour.style.color = '#337433';
+    }
     
     deleteBtn.setAttribute('value',`${deleteBookNumber++}`)
-    deleteBtn.innerText='delete book';
-    tableDataFour.appendChild(deleteBtn)
+    deleteBtn.innerText='DELETE BOOK';
+    tableDataFive.appendChild(deleteBtn)
 
     tableRow.appendChild(tableDataOne);
     tableRow.appendChild(tableDataTwo);
     tableRow.appendChild(tableDataThree);
     tableRow.appendChild(tableDataFour);
+    tableRow.appendChild(tableDataFive);
 
     tableBody.appendChild(tableRow);
     listenClickEvent();
@@ -99,16 +118,16 @@ function deleteBook(e,deleteBookNumber){
     }else if(deleteBookNumber === 1){
         newBooks = books.slice(1);
         books=newBooks
-        console.log(books)
+        // console.log(books)
 
     }else{
         newBooks=[...books.slice(0,deleteBookNumber - 1), ...books.slice(deleteBookNumber) ]
         books=newBooks
-        console.log(newBooks)
-        console.log(books)
+        // console.log(newBooks)
+        // console.log(books)
 
     }
-    console.log(books)
+    // console.log(books)
 }
 
 // deleting all the books
